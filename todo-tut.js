@@ -9,12 +9,14 @@ if (Meteor.isClient) {
     'submit .new-task': function (event) {
       // This is called when a new task is submitted in the form
 
-      var text = event.target.text.value;
+      var t = event.target.text.value;
+      if(t!==""){
+          Tasks.insert({
+            text: t,
+            createdAt: new Date() // the current date and time
+          });
+      }
 
-      Tasks.insert({
-        text: text,
-        createdAt: new Date() // the current date and time
-      });
 
       // clear the form
       event.target.text.value = "";
@@ -31,10 +33,12 @@ if (Meteor.isClient) {
   });
 
   Template.task.events({
+    // Modify an entry based on it's ID
+
+
+    // Delete an entry based on it's ID
     'click .delete': function () {
       Tasks.remove(this._id);
     }
   });
 }
-
-
