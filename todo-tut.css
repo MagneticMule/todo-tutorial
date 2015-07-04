@@ -1,7 +1,7 @@
 /* CSS declarations go here */
 * {
-	transition: all 0.5s ease-in-out;
-	}
+	transition: all 0.1s ease-in-out;
+}
 
 body {
 	font-family: sans-serif;
@@ -18,19 +18,25 @@ body {
 	font-size: 14px;
 }
 
+hr {
+	background-color: #f1f1f1;
+	color: #f1f1f1;
+}
+
 .container {
-	max-width: 600px;
+	max-width: 800px;
 	margin: 0 auto;
 	min-height: 100%;
 	background: white;
 	box-shadow: 0px 0px 8px 1px rgba( 0, 0, 0, 0.1);
-
 }
 
 header {
 	background: #fff;
+	color: red;
 	padding: 20px 15px 15px 15px;
 	position: relative;
+
 }
 
 #login-buttons {
@@ -68,10 +74,18 @@ form {
 }
 
 ul {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	justify-content: center;
 	margin: 0;
 	padding: 0;
 	background: white;
-	transition: all 0.5s ease-in-out;
+}
+
+ul.header {
+
 }
 
 .delete {
@@ -90,11 +104,19 @@ ul {
 }
 
 li {
+	width: 25%;
+	color:red;
 	position: relative;
 	list-style: none;
 	padding: 15px;
-	border-bottom: #eee solid 1px;
-	transition: all 0.5s ease-in-out;
+	border: #eee solid 1px;
+	margin: 1%;
+	transition: all 0.1s ease-in-out;
+	box-shadow: 0px 1px 1px rgba(0,0,0,0.25);
+}
+
+li:hover {
+	box-shadow: 0px 1px 8px rgba(0,0,0,0.25);
 }
 
 .new-item {
@@ -105,7 +127,6 @@ li {
 
 @keyframes new-item-animation {
 	to {
-
 		opacity: 1;
 		transform: translateY(0) scale(1);
 	}
@@ -113,6 +134,7 @@ li {
 
 li .text {
 	margin-left: 10px;
+
 }
 
 li.checked {
@@ -136,9 +158,33 @@ header .hide-completed {
 	margin-left: 5px;
 }
 
+.align-center {
+	text-align: center;
+}
+
 @media (max-width: 600px) {
+
+	.container {
+		max-width: 500px;
+		margin: 0 auto;
+		min-height: 100%;
+		background: white;
+		box-shadow: 0px 0px 8px 1px rgba( 0, 0, 0, 0.1);
+	}
+
+	ul {
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+		align-items: flex-start;
+		margin: 0;
+		padding: 0;
+		background: white;
+	}
+
 	li {
 		padding: 12px 15px;
+		width: 100%;
 	}
 
 	.search {
